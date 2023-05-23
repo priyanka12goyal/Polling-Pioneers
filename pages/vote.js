@@ -41,7 +41,7 @@ const candidates = [
   },
   {
     id: 4,
-    name: ' Gaurav Soni',
+    name: 'Gaurav Soni',
     photo: '/images/GauravSoni.jpeg',
   },
 ];
@@ -95,7 +95,7 @@ const Vote = () => {
     if (message === "success") {
       if (typeof data === "object") {
         if (data["data"] !== null) {
-          toast.error("You have allready voted")
+          toast.error("You have already voted")
           setVoted(true)
         }
         else {
@@ -135,7 +135,7 @@ const Vote = () => {
   const handleVoteSubmit = async (event) => {
     event.preventDefault();
     setConfirmVote(false);
-    if (selectedCandidateId === null) alert("please select a candidate");
+    if (selectedCandidateId === null) alert("Please select a candidate");
     else {
       const params = {
         fullName: userData["fullName"],
@@ -157,7 +157,7 @@ const Vote = () => {
       const { message, data, errors } = response;
       if (message === "success") {
         if (typeof data === "object") {
-          toast.success("data saved sucessfully")
+          toast.success("Data saved sucessfully")
           setVoted(true);
         }
         else if (message === "failed") {
@@ -182,10 +182,10 @@ const Vote = () => {
           if (typeof data === "object") {
             if (data["data"] !== null) {
               toast.error("Vote have been submited already with this number.")
-              // console.log(data);
             }
             else {
 
+              onCaptchVerify();
               otpSend();
               setShowOTP(true);
 
@@ -198,8 +198,8 @@ const Vote = () => {
           }
         }
       }
-      else {
-        alert("enter phone number agian")
+      else{
+      alert("Enter phone number again")
       }
     }
     return (
@@ -223,7 +223,8 @@ const Vote = () => {
   const verifyOtp = () => {
 
     const reSendOtp = () => {
-      if (phoneNumber.trim != "" && phoneNumber.length === 10)
+      if (phoneNumber.trim() != "" && phoneNumber.length === 10)
+        onCaptchVerify();
       otpSend();
     }
     const handleOtp = () => {
@@ -234,12 +235,11 @@ const Vote = () => {
             toast.success("Phone Number verified");
             setShowOTP(false);
             setShowPhoneverified(false)
-
           })
           .catch((err) => {
-            // console.log("a");
-            // console.log(err);
-            // console.log("a");
+            console.log("a");
+            console.log(err.code);
+            console.log("a");
             if (err.code === "auth/code-expired") { toast.error("Opt expired. Click on resend otp") }
             if (err.code === "auth/invalid-verification-code") {
               toast.error("Please enter correct otp")
@@ -273,38 +273,37 @@ const Vote = () => {
   }
 
   const onCaptchVerify = () => {
-
+    if (!window.recaptchaVerifier) {
       window.recaptchaVerifier = new RecaptchaVerifier(
         "recaptcha-container",
         {
           size: "invisible",
           callback: (response) => {
-            otpSend()
           },
           "expired-callback": () => { },
         },
         auth
       );
     }
-  
+  }
 
   const otpSend = () => {
     if (!phoneNumber && !phoneNumber.length === 10) return alert("Invalid phoneNumber");
     setLoader(true)
-    onCaptchVerify();
+
     const appVerifier = window.recaptchaVerifier;
     const ph = "+91" + phoneNumber;
     signInWithPhoneNumber(auth, ph, appVerifier)
       .then((confirmationResult) => {
         window.confirmationResult = confirmationResult;
-        toast.success("OTP sended successfully!");
+        toast.success("OTP sent successfully!");
         setShowPhoneverified(false)
         setLoader(false);
         setShowOTP(true);
       })
       .catch((error) => {
-        // console.log("a");
-        // console.log(error);
+        console.log("a");
+        console.log(error);
 
         if (error.code === "auth/too-many-requests") {
           toast.error("Too many requests!. Please try again later");
@@ -337,6 +336,7 @@ const Vote = () => {
               <span onClick={() => { router.push("/home") }} >Home</span>
               {/* <span>Learn</span> */}
               <span onClick={() => { router.push("/about") }} >About</span>
+              <span onClick={()=>{router.push("/result")}} >Result</span>
 
               <span style={{ color: "#2791d4" }} >Vote</span>
             </div>
@@ -427,7 +427,7 @@ const Detail = ({ details, click }) => {
   return (
     <div className={D.glass}>
       <div className={D.container}>
-        <h1 className={D.topic}>{"instruction"}</h1>
+        <h1 className={D.topic}>{"Instructions"}</h1>
         {details && details.map((object, index) => {
           return <p className={D.details} key={index} >{object}</p>;
         })}
@@ -458,11 +458,11 @@ const UserDetail = ({ submit }) => {
   };
 
   const handleSubmit = () => {
-    if (fields.fullName.trim !== "") {
-      if (fields.dob.trim !== "") {
-        if (fields.gender.trim !== "") {
-          if (fields.studentId.trim !== "") {
-            if (fields.adharNo.trim !== "" && fields.adharNo.length === 12) {
+    if (fields.fullName.trim() !== "") {
+      if (fields.dob.trim() !== "") {
+        if (fields.gender.trim() !== "") {
+          if (fields.studentId.trim() !== "") {
+            if (fields.adharNo.trim() !== "" && fields.adharNo.length === 12) {
               if (fields.phoneNumber !== "" && fields.phoneNumber.length === 10) {
                 if (fields.age !== "" && +fields.age >= 16) {
                   return submit(fields)
@@ -476,7 +476,7 @@ const UserDetail = ({ submit }) => {
               }
             }
             else {
-              return alert("Please enter valid adharNo")
+              return alert("Please enter valid aadharNo")
             }
           }
           else {

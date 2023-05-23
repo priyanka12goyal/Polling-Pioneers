@@ -7,7 +7,7 @@ import React, { useEffect, useState } from "react";
 // logo
 const logo = "/icons/logo.png"
 // Images
-const bannerImg = "/images/bannerImage.jpeg"
+const bannerImg = "/images/bannerimg.jpg"
 const thinkingThaught = "/images/img1.jpeg"
 const register = "/images/img2.jpg"
 const booth = "/images/img3.jpg"
@@ -25,41 +25,41 @@ import img from 'next/image';
 const eligibilityCriteria = [
   "Eligibility Criteria for Candidates:",
 
-  "8.1. Under graduate students between the ages of 16 and 26 shall be eligible to contest elections. For Post Graduate Students the maximum age limit to legitimately contest for election shall be between the ages of 22-30 years.",
+  "1. Under graduate students between the ages of 16 and 26 shall be eligible to contest elections. For Post Graduate Students the maximum age limit to legitimately contest for election shall be between the ages of 22-30 years.",
 
-  "8.2. The candidate shall in no event have any academic arrears in the year of contesting the election.",
+  "2. The candidate shall in no event have any academic arrears in the year of contesting the election.",
 
-  " 8.3. The candidate shall have attained the minimum percentage of attendance as prescribed by the university or 75% attendance, whichever is higher.",
-  "    8.4. The candidate shall have one opportunity to contest for the post of office bearer, and two opportunities to contest for the post of an executive member.",
-  " 8.5. The candidate shall not have a previous criminal record, that is to say he/she shall not have been tried and/or convicted of any criminal offence or misdemeanor. The candidate shall also not have been subjected to any disciplinary action by Medical College/Institution/University authorities.",
-  "  8.6. The candidate shall be a regular, full time student of the Medical College/Institution/University. That is to say that all eligible candidates shall be enrolled in a full time course.",
+  "3. The candidate shall have attained the minimum percentage of attendance as prescribed by the university or 75% attendance, whichever is higher.",
+  "4. The candidate shall have one opportunity to contest for the post of office bearer, and two opportunities to contest for the post of an executive member.",
+  "5. The candidate shall not have a previous criminal record, that is to say he/she shall not have been tried and/or convicted of any criminal offence or misdemeanor. The candidate shall also not have been subjected to any disciplinary action by Medical College/Institution/University authorities.",
+  "6. The candidate shall be a regular, full time student of the Medical College/Institution/University. That is to say that all eligible candidates shall be enrolled in a full time course.",
 ];
 
 const voteContent = [
   "Code of conduct for Candidates and Election Administrators:",
 
-  " 3.7.1 No candidate shall indulge in, nor shall abet, any activity, which may aggravate existing differences or create mutual hatred or cause tension between different castes and communities, religious or linguistic, or between any group(s) of students "
+  "1. No candidate shall indulge in, nor shall abet, any activity, which may aggravate existing differences or create mutual hatred or cause tension between different castes and communities, religious or linguistic, or between any group(s) of students "
   ,
-  " 3.7.2 Criticism of other candidates, when made, shall be confined to their policies and programmes, past record and work. Candidates shall refrain from criticism of all aspects of private life, not connected with the public activities of the other candidates or supporters of such other candidates. Criticism of other candidates, or their supporters based on unverified allegations or distortion shall be avoided.",
-  "3.7.3 There shall be no appeal to caste or communal feeling for securing votes. Places of worship, within or without the campus, shall not be used for election propaganda.",
-  "3.7.4 All candidates shall be prohibited from indulging or abetting, all activities which are considered to be “corrupt practices” and offences, such as bribing of voters, intimidation of voters, impersonation of voters, canvassing or the use of propaganda within 100 meters of polling stations, holding public meetings during the period of 24 hours ending with the hour fixed for the close of the poll and the transport and conveyance of voters to and from polling station.",
-  "3.7.5 No candidate shall be permitted to make use of printed posters, printed pamphlets, or any other printed material for the purpose of canvassing. Candidate may only utilize hand-made posters for the purpose of canvassing, provided that such hand-made posters are procured within theexpenditure limit set out herein above.",
-  "3.7.6 Candidates may only utilize hand-made posters at certain places in the campus, which shall be notified in advance by the university authority.",
-  "3.7.7 No candidate shall be permitted to carry out processions or public meetings, or in any way canvass or distribute propaganda outside the university campus."
+  "2. Criticism of other candidates, when made, shall be confined to their policies and programmes, past record and work. Candidates shall refrain from criticism of all aspects of private life, not connected with the public activities of the other candidates or supporters of such other candidates. Criticism of other candidates, or their supporters based on unverified allegations or distortion shall be avoided.",
+  "3. There shall be no appeal to caste or communal feeling for securing votes. Places of worship, within or without the campus, shall not be used for election propaganda.",
+  "4. All candidates shall be prohibited from indulging or abetting, all activities which are considered to be “corrupt practices” and offences, such as bribing of voters, intimidation of voters, impersonation of voters, canvassing or the use of propaganda within 100 meters of polling stations, holding public meetings during the period of 24 hours ending with the hour fixed for the close of the poll and the transport and conveyance of voters to and from polling station.",
+  "5. No candidate shall be permitted to make use of printed posters, printed pamphlets, or any other printed material for the purpose of canvassing. Candidate may only utilize hand-made posters for the purpose of canvassing, provided that such hand-made posters are procured within theexpenditure limit set out herein above.",
+  "6. Candidates may only utilize hand-made posters at certain places in the campus, which shall be notified in advance by the university authority.",
+  "7. No candidate shall be permitted to carry out processions or public meetings, or in any way canvass or distribute propaganda outside the university campus."
   ,
-  " 3.7.8 No candidate shall, or shall his/her supporters, deface or cause any destruction to any property of the university campus, for any purpose whatsoever, without the prior written permission of the university authorities. All candidates shal1 be held jointly and severally liable for any destruction/defacing of any university property.",
+  "8. No candidate shall, or shall his/her supporters, deface or cause any destruction to any property of the university campus, for any purpose whatsoever, without the prior written permission of the university authorities. All candidates shal1 be held jointly and severally liable for any destruction/defacing of any university property.",
 
-  "3.7.9 During the election period the candidates may hold processions and/or public meetings, provided that such processions and/or public meetings do not, in any manner, disturb the classes and other academic and co-curricular activities of the university. Further, such procession/public meeting may not be held without the prior written permission of the university authority.",
+  "9. During the election period the candidates may hold processions and/or public meetings, provided that such processions and/or public meetings do not, in any manner, disturb the classes and other academic and co-curricular activities of the university. Further, such procession/public meeting may not be held without the prior written permission of the university authority.",
 
-  "3.7.10 The use of loudspeakers, vehicles and animals for the purpose of canvassing shall be prohibited.",
-  " 3.7.11 On the day of polling student organization and candidates shall: (i) co-operate with the officers on election duty to ensure peaceful and orderly polling and  complete freedom to the voters to exercise their franchise without being subjected to any  annoyance or obstruction; (ii) not serve or distribute any eatable, or other solid and liquid consumables, except water on polling day;  (iii) not hand out any propaganda on the polling day.",
+  "10. The use of loudspeakers, vehicles and animals for the purpose of canvassing shall be prohibited.",
+  "11. On the day of polling student organization and candidates shall: (i) co-operate with the officers on election duty to ensure peaceful and orderly polling and  complete freedom to the voters to exercise their franchise without being subjected to any  annoyance or obstruction; (ii) not serve or distribute any eatable, or other solid and liquid consumables, except water on polling day;  (iii) not hand out any propaganda on the polling day.",
 
-  " 3.7.12 Excepting the voters, no one without a valid pass/letters of authority from the election commission or from the university authorities shall enter the polling booths.",
-  "3.7.13 The university authorities shall appoint impartial observers. If the candidates have any specific complaint or problem regarding the conduct of the elections they may bring the same to the notice of the observer.",
-  "3.7.14 All candidates shall be jointly responsible for ensuring the cleaning up of the polling area within 48 hours of the conclusion of polling.",
+  "12. Excepting the voters, no one without a valid pass/letters of authority from the election commission or from the university authorities shall enter the polling booths.",
+  "13. The university authorities shall appoint impartial observers. If the candidates have any specific complaint or problem regarding the conduct of the elections they may bring the same to the notice of the observer.",
+  "14. All candidates shall be jointly responsible for ensuring the cleaning up of the polling area within 48 hours of the conclusion of polling.",
 
-  "3.7.15 Any contravention of any of the above recommendations may make the candidate liable to be stripped of his/her candidature, or his/her elected post, as the case may be. The university authorities may also take appropriate disciplinary action against such a violator.",
-  "3.7.16 In addition to the above mentioned code of conduct, certain provisions of the Indian Penal Code, 1860 (Section 153-A and Chapter IX-A. “Offences Relating to Election”), may also be made applicable to student elections, if decided by the university authority."
+  "15. Any contravention of any of the above recommendations may make the candidate liable to be stripped of his/her candidature, or his/her elected post, as the case may be. The university authorities may also take appropriate disciplinary action against such a violator.",
+  "16. In addition to the above mentioned code of conduct, certain provisions of the Indian Penal Code, 1860 (Section 153-A and Chapter IX-A. “Offences Relating to Election”), may also be made applicable to student elections, if decided by the university authority."
 ];
 
 const votingFor = [
@@ -96,6 +96,7 @@ const Home = () => {
               {/* <span>Learn</span> */}
               <span onClick={()=>{router.push("/about")}}>About</span>
               <span onClick={()=>{router.push("/vote")}} >Vote</span>
+              <span onClick={()=>{router.push("/result")}} >Result</span>
             </div>
           </div>
           {/* banner img */}
@@ -116,8 +117,8 @@ const Home = () => {
           {/* learn more block 1 */}
           <div className={H.learnBlock}>
             <div style={{ height: "100%", width: "50%", display: "flex", alignItems: "center", flexDirection: "column", backgroundColor: "#da1822" }} >
-              <h2 style={{ marginTop: "15%" }}>Who is elegible for vote</h2>
-              <Button variant="outlined" color="inherit" sx={{ marginTop: "5%", fontWeight: "bold" }} onClick={() => { setLearnBox(true); setDetails(eligibilityCriteria); setTopic("Who is elegible for vote") }} >Learn More</Button>
+              <h2 style={{ marginTop: "15%" }}>Who is eligible to vote</h2>
+              <Button variant="outlined" color="inherit" sx={{ marginTop: "5%", fontWeight: "bold" }} onClick={() => { setLearnBox(true); setDetails(eligibilityCriteria); setTopic("Who is eligible to vote") }} >Learn More</Button>
             </div>
             <img src={thinkingThaught} style={{ height: "100%", width: "50%", objectFit: "cover" }} alt="" />
           </div>
@@ -132,7 +133,7 @@ const Home = () => {
           {/* learn more block 3 */}
           <div className={H.learnBlock}>
             <div style={{ height: "100%", width: "50%", display: "flex", alignItems: "center", flexDirection: "column", backgroundColor: "#54ab5f" }} >
-              <h2 style={{ marginTop: "15%", display: "flex", justifyContent: "center" }}>understand who you are voting for</h2>
+              <h2 style={{ marginTop: "15%", display: "flex", justifyContent: "center" }}>Understand who you are voting for</h2>
               <Button variant="outlined" color="inherit" sx={{ marginTop: "5%", fontWeight: "bold" }} onClick={() => { setLearnBox(true); setDetails(votingFor); setTopic("understand who you are voting for") }}>Learn More</Button>
             </div>
             <img src={booth} style={{ height: "100%", width: "50%", objectFit: "cover" }} alt="" />
