@@ -10,9 +10,9 @@
   align-items: center;
   justify-content: space-evenly;
   height: auto;
-  background-color: #ffffff;
+  background-color: yellow;
   margin-top: 100px;
-  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  font-family: 'Times New Roman', Times, serif;
   /* border: 1px solid #ccc; */
 }
 
