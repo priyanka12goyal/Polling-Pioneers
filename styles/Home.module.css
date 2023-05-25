@@ -31,20 +31,20 @@
 }
 
 .navbar h3{
-  color: #428fbf;
-  font-family: monospace;
+  color: #2791d4;
+  
   font-weight: 700;
-  letter-spacing: .4rem;
+  letter-spacing: .2rem;
   text-transform: uppercase;
   font-size: 35px;
   margin-left: 5%;
+  font-family: 'Eczar', serif;
 }
 
 .navbarTitle {
   color: #bbbbbf;
-  font-size: 16px;
+  font-size: 20px;
   text-transform: uppercase;
-  font-family: "Open Sans", Helvetica, Arial, sans-serif;
   font-weight: bold;
   letter-spacing: 0.5px;
   width: 40%;
@@ -52,6 +52,8 @@
   justify-content: space-evenly;
   align-items: center;
   margin-left: 40%;
+  font-family: 'Eczar', serif;
+  
 }
 
 .navbarTitle span:hover {
@@ -62,7 +64,7 @@
 .bannerBox {
   height: auto;
   width: 55%;
-  background-color: #2791d4;
+  background-color: rgb(141, 206, 228);
   position: absolute;
   top: 90%;
   left: 22%;
@@ -130,8 +132,9 @@
   width: 90%;
   display: flex;
   flex-direction: column;
-  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  font-family: 'Eczar', serif;
   margin-top: 120px;
+  
 }
 
 .aboutBox h1 {

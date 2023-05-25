@@ -112,15 +112,15 @@ const Result = () => {
         </div>
 
         <div className={R.box}>
-          <div className={R.head}>Vote Results</div>
+          <div className={R.head} style={{ fontWeight:"bold",fontSize:"40px",  fontFamily: "'Eczar', serif", color: "red"}}>Vote Results</div>
           <div className={R.resultB} >
-            <div style={{ color: "black",fontWeight:"bold",fontSize:"22px"}}><span>candidateName</span> <span>Vote Count</span> </div>
-            <div style={{ fontWeight:"bold",fontSize:"22px"}}><span>Muskan Yadav</span> <span>{muskanVote}</span> </div>
-            <div style={{ fontWeight:"bold",fontSize:"22px"}}><span>Nirmal Chaudhary</span> <span>{nirmalVote}</span> </div>
-            <div style={{ fontWeight:"bold",fontSize:"22px"}}><span>Siddhanth Pareek </span> <span>{siddhanthVote}</span> </div>
-            <div style={{ fontWeight:"bold",fontSize:"22px"}}><span>Gaurav Soni</span> <span>{gauravVote}</span> </div>
+            <div style={{ color: "black",fontWeight:"bold",fontSize:"30px", fontFamily: "'Eczar', serif"}}><span>CandidateName</span> <span>Vote Count</span> </div>
+            <div style={{ fontWeight:"bold",fontSize:"25px",  fontFamily: "'Eczar', serif"}}><span>Muskan Yadav</span> <span>{muskanVote}</span> </div>
+            <div style={{ fontWeight:"bold",fontSize:"25px",  fontFamily: "'Eczar', serif"}}><span>Nirmal Chaudhary</span> <span>{nirmalVote}</span> </div>
+            <div style={{ fontWeight:"bold",fontSize:"25px",  fontFamily: "'Eczar', serif"}}><span>Siddhanth Pareek </span> <span>{siddhanthVote}</span> </div>
+            <div style={{ fontWeight:"bold",fontSize:"25px",  fontFamily: "'Eczar', serif"}}><span>Gaurav Soni</span> <span>{gauravVote}</span> </div>
           </div>
-          <div className={R.head} style={{color:"red"}} >The person who has highest vote is <u style={{textTransform:"uppercase"}}>{candidateName}</u> </div>
+          <div className={R.head} style={{color:"red", fontFamily: "'Eczar', serif", fontSize:"30px"}} >The person with maximum votes is : <u style={{textTransform:"uppercase", fontFamily: "'Eczar', serif", fontSize:"25px"}}>{candidateName}</u> </div>
           <Button
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
@@ -129,7 +129,7 @@ const Result = () => {
               Go to home
             </Button>
         </div>
-        <div className={H.footer} style={{ width: "75%" }}>
+        <div className={H.footer} style={{ width: "80%" }}>
           Contact us : pg900051@gmail.com
         </div>
         {showSignin && <SignIn submit={handleSubmit} />}
